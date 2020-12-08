@@ -1,0 +1,5 @@
+.oneview*.env
+.proxy*.env
+.dockerfile*
+vendor/*
+*.png
