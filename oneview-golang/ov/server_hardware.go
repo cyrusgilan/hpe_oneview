@@ -380,7 +380,7 @@ func (c *OVClient) GetServerHardwareByName(name string) (ServerHardware, error) 
 }
 
 // GetServerHardwareList gets a server hardware with filters
-func (c *OVClient) GetServerHardwareList(filters []string, sort string) (ServerHardwareList, error) {
+func (c *OVClient) GetServerHardwareList(filters []string, sort string, start string, count string, expand string) (ServerHardwareList, error) {
 	var (
 		uri        = "/rest/server-hardware"
 		q          map[string]interface{}
@@ -395,6 +395,17 @@ func (c *OVClient) GetServerHardwareList(filters []string, sort string) (ServerH
 		q["sort"] = sort
 	}
 
+	if start != "" {
+		q["start"] = start
+	}
+
+	if count != "" {
+		q["count"] = count
+	}
+
+	if expand != "" {
+		q["expand"] = expand
+	}
 	// refresh login
 	c.RefreshLogin()
 	c.SetAuthHeaderOptions(c.GetAuthHeaderMap())
