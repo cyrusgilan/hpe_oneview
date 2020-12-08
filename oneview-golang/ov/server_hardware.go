@@ -380,7 +380,7 @@ func (c *OVClient) GetServerHardwareByName(name string) (ServerHardware, error) 
 }
 
 // GetServerHardwareList gets a server hardware with filters
-func (c *OVClient) GetServerHardwareList(filters []string, sort string, ) (ServerHardwareList, error) {
+func (c *OVClient) GetServerHardwareList(filters []string, sort string, count string) (ServerHardwareList, error) {
 	var (
 		uri        = "/rest/server-hardware"
 		q          map[string]interface{}
